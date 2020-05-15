@@ -5,9 +5,9 @@ SPDX-License-Identifier: Apache-2.0
 'use strict';
 
 // Utility class for collections of ledger states --  a state list
-const StateList = require('../ledger-api/statelist.js.js');
+const StateList = require('../ledger-api/statelist.js');
 
-const Arbitration = require('./arbitration.js.js');
+const Arbitration = require('./arbitration.js');
 
 class ArbitrationList extends StateList {
 

@@ -5,7 +5,7 @@ SPDX-License-Identifier: Apache-2.0
 'use strict';
 
 // Utility class for ledger state
-const State = require('../ledger-api/state.js.js');
+const State = require('../ledger-api/state.js');
 
 // Enumerate arbitration state values
 const arbState = {

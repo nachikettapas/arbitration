@@ -8,8 +8,8 @@ SPDX-License-Identifier: Apache-2.0
 const { Contract, Context } = require('fabric-contract-api');
 
 // ProgramNet specifc classes
-const Arbitration = require('./arbitration.js.js');
-const ArbitrationList = require('./arbitrationlist.js.js');
+const Arbitration = require('./arbitration.js');
+const ArbitrationList = require('./arbitrationlist.js');
 
 /**
  * A custom context provides easy access to list of all commercial papers
@@ -77,7 +77,7 @@ class ArbitrationContract extends Contract {
         // Logic to ensure that the voting entity from Arbitration organization
         let clid = new ClientIdentity(ctx.stub).GetID();
         let mspid = new ClientIdentity(ctx.stub).GetMSPID();
-        if ( mspid === "org2MSP" ) {
+        if ( mspid === "org1MSP" ) {
             // Retrieve the current arbitration using key fields provided
             let arbitrationKey = Arbitration.makeKey([issuer, arbitrationNumber]);
             let arbitration = await ctx.arbitrationList.getArbitration(arbitrationKey);

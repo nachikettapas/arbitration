@@ -8,8 +8,8 @@ SPDX-License-Identifier: Apache-2.0
 const { Contract, Context } = require('fabric-contract-api');
 
 // ProgramNet specifc classes
-const Arbitration = require('./arbitration.js.js');
-const ArbitrationList = require('./arbitrationlist.js.js');
+const Arbitration = require('./arbitration.js');
+const ArbitrationList = require('./arbitrationlist.js');
 
 /**
  * A custom context provides easy access to list of all commercial papers

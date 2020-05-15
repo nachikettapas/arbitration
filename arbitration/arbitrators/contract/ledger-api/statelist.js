@@ -3,7 +3,7 @@ SPDX-License-Identifier: Apache-2.0
 */
 
 'use strict';
-const State = require('./state.js.js');
+const State = require('./state.js');
 
 /**
  * StateList provides a named virtual container for a set of ledger states.
