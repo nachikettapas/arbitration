@@ -71,7 +71,11 @@ class Arbitration extends State {
     }
 
     getVote(id) {
-        return this.vote[id];
+        if ( !( id in this.vote ) ) {
+            return 0;
+        } else {
+            return this.vote[id];
+        }
     }
 
     setVote(newVote) {
@@ -81,7 +85,11 @@ class Arbitration extends State {
     }
 
     getVoter(id) {
-        return this.voter[id];
+        if ( !( id in this.voter ) ) {
+            return 0;
+        } else {
+            return this.voter[id];
+        }
     }
 
     setVoter(newVoter) {
@@ -91,9 +99,9 @@ class Arbitration extends State {
     }
 
     getVoteCount() {
-        option1 = 0, option2 = 0;
+        var option1 = 0, option2 = 0;
 
-        for (var key in data) {
+        for (var key in this.vote) {
             if (data[key] === "o1") {
                 option1 += 1;
             }

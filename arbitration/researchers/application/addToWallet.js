@@ -9,7 +9,7 @@ const fs = require('fs');
 const { FileSystemWallet, X509WalletMixin } = require('fabric-network');
 const path = require('path');
 
-const fixtures = path.resolve(__dirname, '../../../../first-network');
+const fixtures = path.resolve(__dirname, '../../../../basic-network');
 
 // A wallet stores a collection of identities
 var myArgs = process.argv.slice(2);

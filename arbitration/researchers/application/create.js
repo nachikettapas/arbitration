@@ -58,7 +58,7 @@ async function main() {
     const issueResponse = await contract.submitTransaction('createArbitration', 'User1', '00001', 'Which is correct?', 'vendor:o1|researcher:o2', '2020-05-31', '2020-11-30');
 
     // process response
-    console.log('Process iarbitration creation response.');
+    console.log('Process arbitration creation response.');
 
     let arbitration = Arbitration.fromBuffer(issueResponse);
 

@@ -11,8 +11,8 @@ networks:
       name: net_basic
 
 services:
-  arbitrators:
-    container_name: arbitrators
+  cliArbitrators:
+    container_name: cliArbitrators
     image: hyperledger/fabric-tools
     tty: true
     dns_search: .

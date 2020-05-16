@@ -12,7 +12,7 @@ const Arbitration = require('../contract/lib/arbitration.js');
 
 // A wallet stores a collection of identities for use
 //const wallet = new FileSystemWallet('../user/isabella/wallet');
-const wallet = new FileSystemWallet('../identity/user/carol/wallet');
+const wallet = new FileSystemWallet('../identity/user/balaji/wallet');
 
 // Main program function
 async function main() {
@@ -25,7 +25,7 @@ async function main() {
 
     // Specify userName for network access
     // const userName = 'isabella.issuer@magnetocorp.com';
-    const userName = 'User1@org2.example.com';
+    const userName = 'Admin@org1.example.com';
 
     // Load connection profile; will be used to locate a gateway
     let connectionProfile = yaml.safeLoad(fs.readFileSync('../gateway/networkConnection.yaml', 'utf8'));
@@ -58,11 +58,11 @@ async function main() {
     const issueResponse = await contract.submitTransaction('vote', 'User1', '00001', 'o1');
 
     // process response
-    console.log('Process iarbitration creation response.');
-
+    console.log('Process arbitration creation response.');
+    
     let arbitration = Arbitration.fromBuffer(issueResponse);
 
-    console.log(`${arbitration.issuer} created the arbitration : ${arbitration.proposal} with options : ${arbitration.option}`);
+    console.log(arbitration);
     console.log('Transaction complete.');
 
   } catch (error) {
@@ -80,11 +80,11 @@ async function main() {
 }
 main().then(() => {
 
-  console.log('Arbitration creation complete.');
+  console.log('Arbitration voting complete.');
 
 }).catch((e) => {
 
-  console.log('Arbitration creation exception.');
+  console.log('Arbitration voting exception.');
   console.log(e);
   console.log(e.stack);
   process.exit(-1);

@@ -11,8 +11,8 @@ networks:
       name: net_basic
 
 services:
-  researchers:
-    container_name: researchers
+  cliResearchers:
+    container_name: cliResearchers
     image: hyperledger/fabric-tools
     tty: true
     dns_search: .

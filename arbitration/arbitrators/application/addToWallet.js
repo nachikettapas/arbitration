@@ -9,7 +9,7 @@ const fs = require('fs');
 const { FileSystemWallet, X509WalletMixin } = require('fabric-network');
 const path = require('path');
 
-const fixtures = path.resolve(__dirname, '../../../../first-network');
+const fixtures = path.resolve(__dirname, '../../../../basic-network');
 
 // A wallet stores a collection of identities
 var myArgs = process.argv.slice(2);
@@ -21,15 +21,15 @@ async function main() {
     try {
 
         // Identity to credentials to be stored in the wallet
-        const credPath = path.join(fixtures, '/crypto-config/peerOrganizations/org2.example.com/users/' + myArgs[1] + '@org2.example.com');
-        const cert = fs.readFileSync(path.join(credPath, '/msp/signcerts/' + myArgs[1] + '@org2.example.com-cert.pem')).toString();
+        const credPath = path.join(fixtures, '/crypto-config/peerOrganizations/org1.example.com/users/' + myArgs[1] + '@org1.example.com');
+        const cert = fs.readFileSync(path.join(credPath, '/msp/signcerts/' + myArgs[1] + '@org1.example.com-cert.pem')).toString();
         let dirCont = fs.readdirSync(path.join(credPath, '/msp/keystore/'));
         let files = dirCont.filter( function(elm) {return elm.match(/.*(_sk)/ig);});
         const key = fs.readFileSync(path.join(credPath, '/msp/keystore/', files[0])).toString();
 
         // Load credentials into wallet
-        const identityLabel = myArgs[1] + '@org2.example.com';
-        const identity = X509WalletMixin.createIdentity('Org2MSP', cert, key);
+        const identityLabel = myArgs[1] + '@org1.example.com';
+        const identity = X509WalletMixin.createIdentity('Org1MSP', cert, key);
 
         await wallet.import(identityLabel, identity);
 

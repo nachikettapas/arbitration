@@ -60,9 +60,9 @@ async function main() {
     // process response
     console.log('Process arbitration completion response.');
 
-    //let arbitration = Arbitration.fromBuffer(issueResponse);
+    let arbitration = Arbitration.fromBuffer(issueResponse);
 
-    console.log(`The result of arbitration created by ${userName} is : ${issueResponse}.`);
+    console.log(arbitration);
     console.log('Transaction complete.');
 
   } catch (error) {

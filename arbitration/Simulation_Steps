@@ -1,0 +1,32 @@
+$ cd fabric-samples/basic-network
+$ ./start.sh
+$ docker ps
+$ docker network inspect net_basic
+$ cd arbitration/arbitration/researchers/configuration/cli/
+$ ./monitordocker.sh net_basic
+
+
+$ cd arbitration/arbitration/researchers/configuration/cli/
+$ docker-compose -f docker-compose.yml up -d cliResearchers
+$ docker ps
+$ cd arbitration/arbitration/researchers/contract
+$ docker exec cliResearchers peer chaincode install -n arbitrationcontract -v 0 -p /opt/gopath/src/github.com/contract -l node
+$ docker exec cliResearchers peer chaincode instantiate -n arbitrationcontract -v 0 -l node -c '{"Args":["org.programnet.arbitration:instantiate"]}' -C mychannel -P "AND ('Org1MSP.member')"
+$ cd arbitration/arbitration/researchers/application/
+$ npm install
+$ node addToWallet.js isabella User1
+$ node create.js
+
+
+$ cd arbitration/arbitration/arbitrators/configuration/cli/
+$ docker-compose -f docker-compose.yml up -d cliArbitrators
+$ docker ps
+$ cd arbitration/arbitration/arbitrators/contract
+$ docker exec cliArbitrators peer chaincode install -n arbitrationcontract -v 0 -p /opt/gopath/src/github.com/contract -l node
+$ cd arbitration/arbitration/arbitrators/application
+$ npm install
+$ node addToWallet.js balaji Admin
+$ node vote.js
+
+$ cd arbitration/arbitration/researchers/application/
+$ node finish.js
