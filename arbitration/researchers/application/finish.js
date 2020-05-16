@@ -62,7 +62,21 @@ async function main() {
 
     let arbitration = Arbitration.fromBuffer(issueResponse);
 
-    console.log(arbitration);
+    var option1 = 0, option2 = 0;
+    for ( var key in arbitration.vote ) {
+      if (arbitration.vote[key] === 'o1') {
+        option1 += 1;
+      } else {
+        option2 += 1;
+      }
+    }
+    if ( option1 >= option2 ) {
+      console.log("Vendor won the arbitration");
+    } else {
+      console.log("Researcher won the arbitration");
+    }
+    
+    
     console.log('Transaction complete.');
 
   } catch (error) {
