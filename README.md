@@ -18,7 +18,7 @@ cd fabric-samples/basic-network
 
 Clone the arbitration repo
 ```
-git clone 
+git clone https://github.com/nachikettapas/arbitration.git
 ```
 
 Experiment setup
