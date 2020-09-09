@@ -7,7 +7,7 @@ chmod u+x prereqs-ubuntu.sh
 
 Install fabric version xxxx on the machine
 ```
-Steps
+curl -sSL https://raw.githubusercontent.com/hyperledger/fabric/master/scripts/bootstrap.sh | bash -s -- 1.4.7
 ```
 
 Run the basic network to check the fabric setup
