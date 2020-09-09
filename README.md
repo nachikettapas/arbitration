@@ -1,16 +1,16 @@
-Install pre-installation steps on a fresh Ubuntu 16 desktop machine:
+1. Install pre-installation steps on a fresh Ubuntu 16 desktop machine:
 ```
 curl -O https://hyperledger.github.io/composer/v0.19/prereqs-ubuntu.sh
 chmod u+x prereqs-ubuntu.sh
 ./prereqs-ubuntu.sh
 ```
 
-Install fabric version xxxx on the machine
+2. Install fabric version 1.4.7 on the machine
 ```
 curl -sSL https://raw.githubusercontent.com/hyperledger/fabric/master/scripts/bootstrap.sh | bash -s -- 1.4.7
 ```
 
-Run the basic network to check the fabric setup
+3. Run the basic network to check the fabric setup. It should complete without any error.
 ```
 cd fabric-samples/basic-network
 ./start.sh
