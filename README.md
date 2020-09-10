@@ -10,18 +10,23 @@ chmod u+x prereqs-ubuntu.sh
 curl -sSL https://raw.githubusercontent.com/hyperledger/fabric/master/scripts/bootstrap.sh | bash -s -- 1.4.7
 ```
 
-3. Run the basic network to check the fabric setup. It should complete without any error.
+3. Run the first network to check the fabric setup. It should complete without any error.
 ```
-cd fabric-samples/basic-network
-./start.sh
+cd fabric-samples/first-network
+./byfn.sh generate
+./byfn.sh up
+```
+It should complete with the following message.
+```
+========= All GOOD, BYFN execution completed ===========
 ```
 
-Clone the arbitration repo
+4. Clone the arbitration repo
 ```
 git clone https://github.com/nachikettapas/arbitration.git
 ```
 
-Experiment setup
+5. Experiment setup
 ```
 cd ~/fabric-samples/arbitration/arbitration/arbitrators/configuration/cli/
 docker-compose -f docker-compose.yml up -d arbitrators
@@ -45,7 +50,7 @@ npm install
 node addToWallet.js isabella User1
 ```
 
-Run the setup
+6. Run the setup
 ```
 1. node create.js
 2. node vote.js
